@@ -1,12 +1,13 @@
-# UnMozLz4
-## ¼ò½é
+ï»¿# UnMozLz4
+## ç®€ä»‹
 ```
-ÓÃÓÚ½âÑ¹»ğºüä¯ÀÀÆ÷(Mozilla Firefox)µÄÊéÇ©ÎÄ¼ş(*.jsonlz4), ÎªÁË·½±ãµ÷ÓÃ, ÎÒ½«½âÑ¹·½·¨·â×°ÎªÀà.
+ç”¨äºè§£å‹ç«ç‹æµè§ˆå™¨(Mozilla Firefox)çš„jsonæ–‡ä»¶(*.jsonlz4æˆ–è€…*.baklz4).
+åŒ…æ‹¬: previous.jsonlz4, recovery.jsonlz4, recovery.baklz4, upgrade.jsonlz4, bookmarks.jsonlz4, store.json.mozlz4
 ```
 
-## ÓÃ·¨
+## ç”¨æ³•
 ```
 from UnMozLz4 import UnMozLz4
-mozLz4Bin = file('bookmarks-2018-03-25_7.jsonlz4', 'rb').read()
-print UnMozLz4(mozLz4Bin).unc()
+mozLz4Bin = open('bookmarks-2010-01-01_2.jsonlz4', 'rb').read()
+print(UnMozLz4(mozLz4Bin).unc())
 ```

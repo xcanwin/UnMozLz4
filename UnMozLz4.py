@@ -1,13 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -- coding: utf-8 --
-
 # author: xcanwin
 
 
 class UnMozLz4():
     def __init__(self, mozLz4Bin):
         self.header = [109, 111, 122, 76, 122, 52, 48, 0]
-        self.mozLz4List = [ord(c) for c in mozLz4Bin]
+        self.mozLz4List = [c for c in mozLz4Bin]
 
     def check(self):
         mozLz4List = self.mozLz4List
@@ -77,17 +76,23 @@ class UnMozLz4():
                 unLz4Bin = binascii.a2b_hex(unLz4Hex)
                 return unLz4Bin
             else:
-                print '[-] error: Content is null!'
+                print('[-] error: Content is null!')
                 return None
         else:
-            print '[-] error: This type of file is not supported!'
+            print('[-] error: This type of file is not supported!')
             return None
 
 
 if __name__ == '__main__':
-    # demo
+    # jsonlz4 or baklz4 file in C:\Users\xxx\AppData\Roaming\Mozilla\Firefox\Profiles\yyy.default\sessionstore-backups\ or .\bookmarkbackups\
+    import sys
+    if len(sys.argv) < 1:
+        exit('python UnMozLz4.py bookmarks-demo.jsonlz4')
+    else:
+        readfile = sys.argv[1]
     from UnMozLz4 import UnMozLz4
-    # jsonlz4 file in C:\Users\xxx\AppData\Roaming\Mozilla\Firefox\Profiles\yyy.default\bookmarkbackups\
-    mozLz4Bin = file('bookmarks-demo.jsonlz4', 'rb').read()
+    mozLz4Bin = open(readfile, 'rb').read()
     unLz4Bin = UnMozLz4(mozLz4Bin).unc()
-    print unLz4Bin
+    open('dec-' + readfile, 'wb').write(unLz4Bin)
+    print('[+] Save: dec-' + readfile)
+
