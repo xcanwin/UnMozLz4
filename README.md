@@ -1,9 +1,8 @@
 ﻿# UnMozLz4
+
 ## 简介
-```
-用于解压火狐浏览器(Mozilla Firefox)的json文件(*.jsonlz4或者*.baklz4).
-包括: previous.jsonlz4, recovery.jsonlz4, recovery.baklz4, upgrade.jsonlz4, bookmarks.jsonlz4, store.json.mozlz4
-```
+- 一个用于解析火狐浏览器的jsonlz4与baklz4格式文件的Python库；
+- 包括：previous.jsonlz4、recovery.jsonlz4、recovery.baklz4、upgrade.jsonlz4、bookmarks.jsonlz4、store.json.mozlz4等。
 
 ## 用法
 ```

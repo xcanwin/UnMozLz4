@@ -2,7 +2,6 @@
 # -- coding: utf-8 --
 # author: xcanwin
 
-
 class UnMozLz4():
     def __init__(self, mozLz4Bin):
         self.header = [109, 111, 122, 76, 122, 52, 48, 0]
@@ -82,11 +81,10 @@ class UnMozLz4():
             print('[-] error: This type of file is not supported!')
             return None
 
-
 if __name__ == '__main__':
     # jsonlz4 or baklz4 file in C:\Users\xxx\AppData\Roaming\Mozilla\Firefox\Profiles\yyy.default\sessionstore-backups\ or .\bookmarkbackups\
     import sys
-    if len(sys.argv) < 1:
+    if len(sys.argv) < 2:
         exit('python UnMozLz4.py bookmarks-demo.jsonlz4')
     else:
         readfile = sys.argv[1]
@@ -95,4 +93,3 @@ if __name__ == '__main__':
     unLz4Bin = UnMozLz4(mozLz4Bin).unc()
     open('dec-' + readfile, 'wb').write(unLz4Bin)
     print('[+] Save: dec-' + readfile)
-
